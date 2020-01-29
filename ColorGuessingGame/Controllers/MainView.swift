@@ -39,7 +39,7 @@ class MainView: UIView {
     
     public lazy var randomColorImageDisplay: UIView = {
         let image = UIView()
-        image.backgroundColor = .systemRed//colorGenerated.rgbColor()
+        image.backgroundColor = colorGenerated.rgbColor()
         image.layer.cornerRadius = 15
         image.clipsToBounds = true 
         return image
@@ -47,7 +47,7 @@ class MainView: UIView {
     
     public lazy var highScoreLabel: UILabel = {
         let label = UILabel()
-        label.text = " High Score = score"
+        label.text = " High Score = 0"
         label.textAlignment = .left
         label.font = UIFont(name: "Chalkduster", size: 17)
         label.textColor = .systemIndigo
@@ -60,7 +60,7 @@ class MainView: UIView {
     
     public lazy var scoreLabel: UILabel = {
         let label = UILabel()
-        label.text = " Score = score"
+        label.text = " Score = 0"
         label.textAlignment = .left
         label.font = UIFont(name: "Chalkduster", size: 17)
         label.textColor = .systemIndigo
@@ -88,11 +88,23 @@ class MainView: UIView {
     }()
     
     public lazy var greenButtonPressed: UIButton = {
-        let greenButton = UIButton()
+        let greenButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         greenButton.backgroundColor = .systemGreen
-        greenButton.layer.cornerRadius = 50
+        greenButton.layer.cornerRadius = greenButton.frame.height / 2
         greenButton.clipsToBounds = true
         return greenButton
+    }()
+    
+    public lazy var playAgainButtonPressed: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemTeal
+        button.setTitle(" Play Again? ", for: .normal)
+        button.titleLabel?.textColor = .systemIndigo
+        button.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
+        button.layer.cornerRadius = 15
+        button.clipsToBounds = true
+        button.isHidden = false
+        return button
     }()
     
     //we use the override initializer to make the frame
@@ -110,9 +122,6 @@ class MainView: UIView {
         commonInit()
     }
     
-    
-    
-    
     private func commonInit() {
         setUpBackgroundImage()
         setUpMessageLabel()
@@ -121,10 +130,15 @@ class MainView: UIView {
         setUpScoreLabel()
         setUpRedButton()
         setUpBlueButton()
+        setUpGreenButton()
+        setUpPlayAgainButton()
         //        showAlert(title: "Blah", message: "blah blah")
     }
-    
-    
+    //use this to make the button into a circle
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        //greenButton.layer.cornerRadius = greenButton.frame.height / 2
+    }
     
     //This sets up the background image constraints
     private func setUpBackgroundImage() {
@@ -187,6 +201,7 @@ class MainView: UIView {
             highScoreLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             highScoreLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60)
         ])
+        
     }
     
     //This sets up score constraints
@@ -224,6 +239,7 @@ class MainView: UIView {
                 blueButtonPressed.leadingAnchor.constraint(equalTo: redButtonPressed.trailingAnchor, constant: 60),
                 blueButtonPressed.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -120),
                 blueButtonPressed.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.125),
+                 blueButtonPressed.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.125)
             
             ])
         }
@@ -233,14 +249,28 @@ class MainView: UIView {
         greenButtonPressed.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-         greenButtonPressed.topAnchor.constraint(equalTo: redButtonPressed.bottomAnchor, constant: 100),
-         greenButtonPressed.leadingAnchor.constraint(equalTo: blueButtonPressed.leadingAnchor, constant: 60),
-         greenButtonPressed.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 200),
-       //  greenButtonPressed
+        // greenButtonPressed.topAnchor.constraint(equalTo: redButtonPressed.bottomAnchor, constant: 50),
+         greenButtonPressed.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+         //greenButtonPressed.trailingAnchor.constraint(equalTo: blueButtonPressed.leadingAnchor, constant: 60),
+         greenButtonPressed.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant:-40),
+         greenButtonPressed.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.125),
+            greenButtonPressed.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.125)
         
         
         ])
     }
     
+    private func setUpPlayAgainButton() {
+        addSubview(playAgainButtonPressed)
+        playAgainButtonPressed.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            playAgainButtonPressed.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -40),
+            playAgainButtonPressed.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -40),
+            playAgainButtonPressed.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 280),
+            playAgainButtonPressed.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.05)
+        
+        ])
+    }
     
 }
