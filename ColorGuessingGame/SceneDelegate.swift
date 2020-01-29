@@ -12,12 +12,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
+//this is where you want to change your code
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+         window = UIWindow(frame: UIScreen.main.bounds)//CG core graphics take in a rectangle and takes in 2 parameters x and y. Every frame has an origin and a size. We have that singleton UIScreen.main.bounds and its of class CGRECT it has all the properties. Now the window has a frame
+        //so now the window needs an initial scene
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        //first thing you need to do (initializer UIWindow())
+        window = UIWindow()
+        window?.windowScene = windowScene
+        window?.rootViewController = ViewController()
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
