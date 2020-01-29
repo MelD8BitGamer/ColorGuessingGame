@@ -14,6 +14,7 @@
 		4DFDC4E223E0D7BE009DFF39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DFDC4E023E0D7BE009DFF39 /* LaunchScreen.storyboard */; };
 		4DFDC4EA23E0DC57009DFF39 /* RGBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFDC4E923E0DC57009DFF39 /* RGBModel.swift */; };
 		4DFDC4EE23E0FE71009DFF39 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFDC4ED23E0FE71009DFF39 /* MainView.swift */; };
+		4DFDC4F023E12FF0009DFF39 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFDC4EF23E12FF0009DFF39 /* ShowAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4DFDC4E323E0D7BE009DFF39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DFDC4E923E0DC57009DFF39 /* RGBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBModel.swift; sourceTree = "<group>"; };
 		4DFDC4ED23E0FE71009DFF39 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		4DFDC4EF23E12FF0009DFF39 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +84,17 @@
 			children = (
 				4DFDC4ED23E0FE71009DFF39 /* MainView.swift */,
 				4DFDC4D923E0D7BB009DFF39 /* ViewController.swift */,
+				4DFDC4F123E12FF5009DFF39 /* Extensions */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4DFDC4F123E12FF5009DFF39 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4DFDC4EF23E12FF0009DFF39 /* ShowAlert.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DFDC4DA23E0D7BB009DFF39 /* ViewController.swift in Sources */,
+				4DFDC4F023E12FF0009DFF39 /* ShowAlert.swift in Sources */,
 				4DFDC4EA23E0DC57009DFF39 /* RGBModel.swift in Sources */,
 				4DFDC4D623E0D7BB009DFF39 /* AppDelegate.swift in Sources */,
 				4DFDC4EE23E0FE71009DFF39 /* MainView.swift in Sources */,

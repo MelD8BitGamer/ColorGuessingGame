@@ -17,10 +17,12 @@ class ViewController: UIViewController {
     
     override func loadView() {
         view = mainView //You need this to load everything you put on the mainview file to this ViewController
+        //self.showAlert(title: "Rules For Color Guessing Game", message: "A random color appears on the screen. Tap the color that it most closely resembles. ")
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray3
+       // self.showAlert(title: "Rules For Color Guessing Game", message: "A random color appears on the screen. Tap the color that it most closely resembles. ")
         
     }
 
