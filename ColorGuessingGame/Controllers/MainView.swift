@@ -14,7 +14,6 @@ class MainView: UIView {
     var colorGenerated = RGBValues()
     
     
-    
     public lazy var backgroundImage: UIImageView = {
         var background = UIImageView()
         background.image = UIImage(named: "unicornWallpaper")
@@ -74,24 +73,33 @@ class MainView: UIView {
     public lazy var redButtonPressed: UIButton = {
         let redButton = UIButton()
         redButton.backgroundColor = .systemRed
+        redButton.setTitle("Red", for: .normal)
+        redButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
         redButton.layer.cornerRadius = 50
         redButton.clipsToBounds = true
+        redButton.tag = 0
         return redButton
     }()
     
     public lazy var blueButtonPressed: UIButton = {
         let blueButton = UIButton()
         blueButton.backgroundColor = .systemBlue
+        blueButton.setTitle("Blue", for: .normal)
+        blueButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
         blueButton.layer.cornerRadius = 50
         blueButton.clipsToBounds = true
+        blueButton.tag = 1
         return blueButton
     }()
     
     public lazy var greenButtonPressed: UIButton = {
         let greenButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         greenButton.backgroundColor = .systemGreen
+        greenButton.setTitle("Green", for: .normal)
+        greenButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
         greenButton.layer.cornerRadius = greenButton.frame.height / 2
         greenButton.clipsToBounds = true
+        greenButton.tag = 2
         return greenButton
     }()
     
@@ -132,7 +140,7 @@ class MainView: UIView {
         setUpBlueButton()
         setUpGreenButton()
         setUpPlayAgainButton()
-        //        showAlert(title: "Blah", message: "blah blah")
+         
     }
     //use this to make the button into a circle
     override func layoutSubviews() {
@@ -224,7 +232,7 @@ class MainView: UIView {
         NSLayoutConstraint.activate([
               redButtonPressed.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 20),
               redButtonPressed.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-              redButtonPressed.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -295),
+//              redButtonPressed.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -295),
             redButtonPressed.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.125),
          
         ])
