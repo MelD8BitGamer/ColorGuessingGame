@@ -7,43 +7,44 @@
 //
 
 import UIKit
-
+//TODO: Make a user defaults to keep HighScore!!
 class ViewController: UIViewController {
     var score = 0
     var highScore = 0
-    
-    //need a private instance of MainView
+  
     private var mainView = MainView()
     
-    //var buttonsArray = [mainView.greenButtonPressed, mainView.redButtonPressed, mainView.blueButtonPressed]
     override func loadView() {
-        view = mainView //You need this to load everything you put on the mainview file to this ViewController
-        //self.showAlert(title: "Rules For Color Guessing Game", message: "A random color appears on the screen. Tap the color that it most closely resembles. ")
+        view = mainView
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         activateTargetGamePlay()
-        self.showAlert(title: "Rules For Color Guessing Game", message: "A random color appears on the screen. Tap the color that it most closely resembles. ")
-        
+        mainView.playAgainButtonPressed.isHidden = true
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+         self.showAlert(title: "Rules For Color Guessing Game", message: "Tap the color bubble that MOST resembles the color on the screen.")
+    }
+    
     func activateTargetGamePlay() {
+        
         mainView.redButtonPressed.addTarget(self, action: #selector(gamePlay(_:)), for: .touchUpInside)
         mainView.blueButtonPressed.addTarget(self, action: #selector(gamePlay(_:)), for: .touchUpInside)
         mainView.greenButtonPressed.addTarget(self, action: #selector(gamePlay(_:)), for: .touchUpInside)
         mainView.playAgainButtonPressed.addTarget(self, action: #selector(playAgainButtonPressed), for: .touchUpInside)
     }
     
-    
     func currentScoreGenerator() {
         score += 1
     }
-    
     
     func highScoreGenerator() {
         score += 1
         if score >= highScore {
             highScore = score
-            mainView.highScoreLabel.text = "Your high score is \(highScore)"
+            mainView.highScoreLabel.text = "  Your high score is \(highScore)"
             return
         }
     }
@@ -56,14 +57,13 @@ class ViewController: UIViewController {
                 highScoreGenerator()
                 mainView.colorGenerated = RGBValues()
                 mainView.messageLabel.text = "You win! 🥳"
-                mainView.scoreLabel.text = "Your current score is \(score)"
-                mainView.highScoreLabel.text = "HighScore = \(highScore)"
+                mainView.scoreLabel.text = "  Your current score is \(score)"
+                mainView.highScoreLabel.text = "  HighScore = \(highScore)"
                 mainView.randomColorImageDisplay.backgroundColor = mainView.colorGenerated.rgbColor()
             } else {
                 mainView.messageLabel.text = "Loser!😢"
                 mainView.playAgainButtonPressed.isHidden = false
                 [mainView.redButtonPressed, mainView.blueButtonPressed, mainView.greenButtonPressed].forEach({$0?.isEnabled = false})
-                
             }
             
         case 1:
@@ -71,21 +71,22 @@ class ViewController: UIViewController {
                 highScoreGenerator()
                 mainView.colorGenerated = RGBValues()
                 mainView.messageLabel.text = "You win! 🥳"
-                mainView.scoreLabel.text = "Your current score is \(score)"
-                mainView.highScoreLabel.text = "HighScore = \(highScore)"
+                mainView.scoreLabel.text = "  Your current score is \(score)"
+                mainView.highScoreLabel.text = "  HighScore = \(highScore)"
                 mainView.randomColorImageDisplay.backgroundColor = mainView.colorGenerated.rgbColor()
             } else {
                 mainView.messageLabel.text = "Loser!😢"
                 mainView.playAgainButtonPressed.isHidden = false
                 [mainView.redButtonPressed, mainView.blueButtonPressed, mainView.greenButtonPressed].forEach({$0?.isEnabled = false})
             }
+            
         case 2:
             if mainView.colorGenerated.highestRGB() == mainView.colorGenerated.green {
                 highScoreGenerator()
                 mainView.colorGenerated = RGBValues()
                 mainView.messageLabel.text = "You win! 🥳"
-                mainView.scoreLabel.text = "Your current score is \(score)"
-                mainView.highScoreLabel.text = "HighScore = \(highScore)"
+                mainView.scoreLabel.text = "  Your current score is \(score)"
+                mainView.highScoreLabel.text = "  HighScore = \(highScore)"
                 mainView.randomColorImageDisplay.backgroundColor = mainView.colorGenerated.rgbColor()
             } else {
                 mainView.messageLabel.text = "Loser!😢"
@@ -93,11 +94,13 @@ class ViewController: UIViewController {
                 [mainView.redButtonPressed, mainView.blueButtonPressed, mainView.greenButtonPressed].forEach({$0?.isEnabled = false})
                 mainView.playAgainButtonPressed.isHidden = false
             }
+            
         default:
             mainView.playAgainButtonPressed.isHidden = false
             print("not found")
         }
     }
+    
         @objc
         func playAgainButtonPressed() {
             score = 0
@@ -106,9 +109,7 @@ class ViewController: UIViewController {
             [mainView.redButtonPressed, mainView.blueButtonPressed, mainView.greenButtonPressed].forEach({$0?.isEnabled = true})
             mainView.colorGenerated = RGBValues()
             mainView.randomColorImageDisplay.backgroundColor = mainView.colorGenerated.rgbColor()
-            mainView.scoreLabel.text = "Your current score is \(score)"
-            mainView.highScoreLabel.text = "Your high score is \(highScore)"
+            mainView.scoreLabel.text = "  Your current score is \(score)"
+            mainView.highScoreLabel.text = "  Your high score is \(highScore)"
         }
-
-
 }

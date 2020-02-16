@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class MainView: UIView {
-    
+   
     let defaultMessage = " Guess That Color!"
     var colorGenerated = RGBValues()
     
@@ -32,9 +32,9 @@ class MainView: UIView {
         label.backgroundColor = .systemTeal
         label.layer.cornerRadius = 20
         label.clipsToBounds = true
-        label.alpha = 7 //fix this
+        label.alpha = 7
         return label
-    }() // Remember you need this
+    }()
     
     public lazy var randomColorImageDisplay: UIView = {
         let image = UIView()
@@ -46,20 +46,20 @@ class MainView: UIView {
     
     public lazy var highScoreLabel: UILabel = {
         let label = UILabel()
-        label.text = " High Score = 0"
+        label.text = "  High Score = 0"
         label.textAlignment = .left
         label.font = UIFont(name: "Chalkduster", size: 17)
         label.textColor = .systemIndigo
         label.backgroundColor = .systemTeal
         label.layer.cornerRadius = 10
         label.clipsToBounds = true
-        label.alpha = 3 //fix translution
+        label.alpha = 3
         return label
     }()
     
     public lazy var scoreLabel: UILabel = {
         let label = UILabel()
-        label.text = " Score = 0"
+        label.text = "  Score = 0"
         label.textAlignment = .left
         label.font = UIFont(name: "Chalkduster", size: 17)
         label.textColor = .systemIndigo
@@ -71,28 +71,29 @@ class MainView: UIView {
     }()
     
     public lazy var redButtonPressed: UIButton = {
-        let redButton = UIButton()
+        let redButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         redButton.backgroundColor = .systemRed
         redButton.setTitle("Red", for: .normal)
         redButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
-        redButton.layer.cornerRadius = 50
+        redButton.layer.cornerRadius = redButton.frame.height / 2
         redButton.clipsToBounds = true
         redButton.tag = 0
         return redButton
     }()
     
     public lazy var blueButtonPressed: UIButton = {
-        let blueButton = UIButton()
+        let blueButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         blueButton.backgroundColor = .systemBlue
         blueButton.setTitle("Blue", for: .normal)
         blueButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 12)
-        blueButton.layer.cornerRadius = 50
+        blueButton.layer.cornerRadius = blueButton.frame.height / 2
         blueButton.clipsToBounds = true
         blueButton.tag = 1
         return blueButton
     }()
     
     public lazy var greenButtonPressed: UIButton = {
+        //This is what makes it a circle
         let greenButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         greenButton.backgroundColor = .systemGreen
         greenButton.setTitle("Green", for: .normal)
@@ -116,7 +117,7 @@ class MainView: UIView {
     }()
     
     //we use the override initializer to make the frame
-    //init(frame:) gets called if view is dont programmatically
+    //init(frame:) gets called if view is don't programmatically
     override init(frame: CGRect) {
         super.init(frame:UIScreen.main.bounds)
         commonInit()
@@ -145,7 +146,6 @@ class MainView: UIView {
     //use this to make the button into a circle
     override func layoutSubviews() {
         super.layoutSubviews()
-        //greenButton.layer.cornerRadius = greenButton.frame.height / 2
     }
     
     //This sets up the background image constraints
@@ -183,19 +183,16 @@ class MainView: UIView {
         ])
     }
     
-    //This sets up the randomColorImageDisplay constraints (I know its long)
     private func setUpRandomColorImageDisplay() {
         addSubview(randomColorImageDisplay) //returns the image we created above
         //set constraints for the image label, when doing this you set autoresizing mask to off. addSubview means add a view to the existing view
         randomColorImageDisplay.translatesAutoresizingMaskIntoConstraints = false
         
-        //You need this in order to constraint anything
         NSLayoutConstraint.activate([
             randomColorImageDisplay.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 20),
             randomColorImageDisplay.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.8),
             randomColorImageDisplay.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.3),
-            randomColorImageDisplay.centerXAnchor.constraint(equalTo: centerXAnchor),
-            
+            randomColorImageDisplay.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
     //This sets up HighScore constraints
@@ -206,8 +203,8 @@ class MainView: UIView {
         
         NSLayoutConstraint.activate([
             highScoreLabel.topAnchor.constraint(equalTo: randomColorImageDisplay.bottomAnchor, constant: 8),
-            highScoreLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            highScoreLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60)
+            highScoreLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
+            highScoreLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40)
         ])
         
     }
@@ -219,8 +216,8 @@ class MainView: UIView {
         
         NSLayoutConstraint.activate([
             scoreLabel.topAnchor.constraint(equalTo: highScoreLabel.bottomAnchor, constant: 8),
-            scoreLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            scoreLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60)
+            scoreLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
+            scoreLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40)
         ])
     }
     
@@ -232,7 +229,7 @@ class MainView: UIView {
         NSLayoutConstraint.activate([
               redButtonPressed.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 20),
               redButtonPressed.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-//              redButtonPressed.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -295),
+             redButtonPressed.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -295),
             redButtonPressed.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.125),
          
         ])
@@ -243,12 +240,11 @@ class MainView: UIView {
             blueButtonPressed.translatesAutoresizingMaskIntoConstraints = false
             
             NSLayoutConstraint.activate([
-                blueButtonPressed.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 100),
-                blueButtonPressed.leadingAnchor.constraint(equalTo: redButtonPressed.trailingAnchor, constant: 60),
-                blueButtonPressed.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -120),
-                blueButtonPressed.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.125),
-                 blueButtonPressed.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.125)
-            
+                blueButtonPressed.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -175),
+                blueButtonPressed.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -100),
+                blueButtonPressed.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 150),
+                 blueButtonPressed.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.125),
+                 blueButtonPressed.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.125)
             ])
         }
     
@@ -257,9 +253,7 @@ class MainView: UIView {
         greenButtonPressed.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-        // greenButtonPressed.topAnchor.constraint(equalTo: redButtonPressed.bottomAnchor, constant: 50),
          greenButtonPressed.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-         //greenButtonPressed.trailingAnchor.constraint(equalTo: blueButtonPressed.leadingAnchor, constant: 60),
          greenButtonPressed.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant:-40),
          greenButtonPressed.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.125),
             greenButtonPressed.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.125)
@@ -274,8 +268,8 @@ class MainView: UIView {
         
         NSLayoutConstraint.activate([
             playAgainButtonPressed.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -40),
-            playAgainButtonPressed.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -40),
-            playAgainButtonPressed.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 280),
+            playAgainButtonPressed.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -55),
+            playAgainButtonPressed.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 265),
             playAgainButtonPressed.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.05)
         
         ])
