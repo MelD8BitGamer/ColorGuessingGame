@@ -8,6 +8,8 @@
 
 import UIKit
 //TODO: Make a user defaults to keep HighScore!!
+//TODO: Make sounds and Unit TESTS!!!
+
 class ViewController: UIViewController {
     var score = 0
     var highScore = 0
