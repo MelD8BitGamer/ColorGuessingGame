@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class MainView: UIView {
-   
+   //TODO: Set highScoreList
     let defaultMessage = " Guess That Color!"
     var colorGenerated = RGBValues()
     

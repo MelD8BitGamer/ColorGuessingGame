@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D56559124183049006C5507 /* DataPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = 4D56559024183049006C5507 /* DataPersistence */; };
+		4D56559324183135006C5507 /* HighScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D56559224183135006C5507 /* HighScoreModel.swift */; };
+		4D56559524183206006C5507 /* HighScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D56559424183206006C5507 /* HighScoresViewController.swift */; };
+		4D5655972418323B006C5507 /* HighScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5655962418323B006C5507 /* HighScoresView.swift */; };
 		4DFDC4D623E0D7BB009DFF39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFDC4D523E0D7BB009DFF39 /* AppDelegate.swift */; };
 		4DFDC4D823E0D7BB009DFF39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFDC4D723E0D7BB009DFF39 /* SceneDelegate.swift */; };
 		4DFDC4DA23E0D7BB009DFF39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFDC4D923E0D7BB009DFF39 /* ViewController.swift */; };
@@ -18,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D56559224183135006C5507 /* HighScoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HighScoreModel.swift; path = ColorGuessingGame/Controllers/HighScoreModel.swift; sourceTree = SOURCE_ROOT; };
+		4D56559424183206006C5507 /* HighScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoresViewController.swift; sourceTree = "<group>"; };
+		4D5655962418323B006C5507 /* HighScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HighScoresView.swift; path = ColorGuessingGame/Controllers/HighScoresView.swift; sourceTree = SOURCE_ROOT; };
 		4DFDC4D223E0D7BB009DFF39 /* ColorGuessingGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorGuessingGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DFDC4D523E0D7BB009DFF39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DFDC4D723E0D7BB009DFF39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D56559124183049006C5507 /* DataPersistence in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +52,7 @@
 		4D3B121E23F9D97200B8A2AB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4D5655962418323B006C5507 /* HighScoresView.swift */,
 				4DFDC4ED23E0FE71009DFF39 /* MainView.swift */,
 			);
 			path = Views;
@@ -82,6 +91,7 @@
 		4DFDC4EB23E0DC5C009DFF39 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4D56559224183135006C5507 /* HighScoreModel.swift */,
 				4DFDC4E923E0DC57009DFF39 /* RGBModel.swift */,
 			);
 			path = Model;
@@ -91,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				4DFDC4D923E0D7BB009DFF39 /* ViewController.swift */,
+				4D56559424183206006C5507 /* HighScoresViewController.swift */,
 				4D3B121E23F9D97200B8A2AB /* Views */,
 				4DFDC4F123E12FF5009DFF39 /* Extensions */,
 			);
@@ -121,6 +132,9 @@
 			dependencies = (
 			);
 			name = ColorGuessingGame;
+			packageProductDependencies = (
+				4D56559024183049006C5507 /* DataPersistence */,
+			);
 			productName = ColorGuessingGame;
 			productReference = 4DFDC4D223E0D7BB009DFF39 /* ColorGuessingGame.app */;
 			productType = "com.apple.product-type.application";
@@ -149,6 +163,9 @@
 				Base,
 			);
 			mainGroup = 4DFDC4C923E0D7BB009DFF39;
+			packageReferences = (
+				4D56558F24183049006C5507 /* XCRemoteSwiftPackageReference "DataPersistence" */,
+			);
 			productRefGroup = 4DFDC4D323E0D7BB009DFF39 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -177,10 +194,13 @@
 			files = (
 				4DFDC4DA23E0D7BB009DFF39 /* ViewController.swift in Sources */,
 				4DFDC4F023E12FF0009DFF39 /* ShowAlert.swift in Sources */,
+				4D56559324183135006C5507 /* HighScoreModel.swift in Sources */,
 				4DFDC4EA23E0DC57009DFF39 /* RGBModel.swift in Sources */,
 				4DFDC4D623E0D7BB009DFF39 /* AppDelegate.swift in Sources */,
 				4DFDC4EE23E0FE71009DFF39 /* MainView.swift in Sources */,
 				4DFDC4D823E0D7BB009DFF39 /* SceneDelegate.swift in Sources */,
+				4D5655972418323B006C5507 /* HighScoresView.swift in Sources */,
+				4D56559524183206006C5507 /* HighScoresViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,7 +343,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.melinda.ColorGuessingGame;
+				PRODUCT_BUNDLE_IDENTIFIER = com.melinda.CoreLocationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -341,7 +361,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.melinda.ColorGuessingGame;
+				PRODUCT_BUNDLE_IDENTIFIER = com.melinda.CoreLocationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -370,6 +390,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4D56558F24183049006C5507 /* XCRemoteSwiftPackageReference "DataPersistence" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/DataPersistence";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4D56559024183049006C5507 /* DataPersistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D56558F24183049006C5507 /* XCRemoteSwiftPackageReference "DataPersistence" */;
+			productName = DataPersistence;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4DFDC4CA23E0D7BB009DFF39 /* Project object */;
 }

@@ -7,7 +7,10 @@
 //
 
 import UIKit
-//TODO: Make a user defaults to keep HighScore!!
+import DataPersistence
+//TODO: Make a HighScoreListVC and have it segue from the mainview controller 3/10/20
+//TODO: make a splash screen tutorial!!!
+//TODO: Add sound!!
 //TODO: Make sounds and Unit TESTS!!!
 
 class ViewController: UIViewController {
@@ -15,6 +18,7 @@ class ViewController: UIViewController {
     var highScore = 0
   
     private var mainView = MainView()
+    private var dataPersistence = DataPersistence<HighScoresList>(filename: "ColorGuessHighScores")
     
     override func loadView() {
         view = mainView
